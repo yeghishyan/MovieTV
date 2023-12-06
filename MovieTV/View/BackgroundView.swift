@@ -17,7 +17,7 @@ struct BackgroundView: View {
     
     var imagePath: String {
         if let currentItem = currentItem {
-            return currentItem.backdropImage
+            return currentItem.backdropImage()
         }
         
         return ""
@@ -26,14 +26,15 @@ struct BackgroundView: View {
     var body: some View {
         ZStack(alignment: .topTrailing, content: {            
             KFImage(URL(string: imagePath))
-                .placeholder({ Image("backgroundImage") })
+                .onFailureImage(.init(named: "backgroundImage"))
                 .resizable()
                 .frame(width: 1920, height: 1080)
             
             LinearGradient(colors: [.clear, .black], startPoint: .center, endPoint: .bottom).zIndex(0)
             LinearGradient(colors: [.clear, .clear, .black], startPoint: .center, endPoint: .leading).zIndex(0)
         })
+        .animation(.easeInOut, value: imagePath)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-        .scaleEffect(0.6, anchor: .topTrailing)
+        .scaleEffect(0.7, anchor: .topTrailing)
     }
 }

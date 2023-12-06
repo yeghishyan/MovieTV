@@ -16,15 +16,13 @@ struct MainPageContent: View {
     var focus: FocusState<MainPage.FocusFields?>.Binding
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 50) {
             HighlightedView(currentItem: contentVM.focusedItem)
-                .frame(maxWidth: 600, minHeight: 400, maxHeight: 400, alignment: .topLeading)
+                .frame(maxWidth: 700, minHeight: 400, maxHeight: 400, alignment: .topLeading)
             
-            //if let _ = mainPageVM.rowData {
-                collectionContentSection()
-            //}
+            collectionContentSection()
         }
-        .padding(.top, 60)
+        .padding(.top, 90)
         .foregroundStyle(.white, Color(hex: "#fff"))
     }
     
@@ -40,11 +38,11 @@ struct MainPageContent: View {
     func collectionContentSection() -> some View {
         VStack(alignment: .leading, spacing: 10) {
             ScrollView(.horizontal) {
-                HStack(spacing: -5) {
+                HStack(spacing: 20) {
                     ForEach(Array(mainPageVM.rowData.enumerated()), id:\.offset) { (colIndex, item) in
                         CardItem(
-                            title: item.title,
-                            imagePath: item.posterImage,
+                            imagePath: item.posterImage(size: .w342p),
+                            size: TMDbImageSize.w342p.dimensions.applying(.init(scaleX: 0.78, y: 0.78)),
                             ifPressed: {
                                 DispatchQueue.main.async {
                                     contentVM.selectedItem = item
@@ -57,7 +55,8 @@ struct MainPageContent: View {
                         .focused(focus, equals: .collection(0, colIndex))
                     }
                 }
-                .padding(.leading, 10)
+                .padding(.top, 30)
+                .padding(.leading, 30)
                 .padding(.trailing, 200)
                 
                 Spacer()
