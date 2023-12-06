@@ -19,7 +19,7 @@
 ## Screenshots
 
 <p align="center"> 
- <img src="Images/PosterView.png" width="800" height="522">  
+ <img src="Images/PosterImage.png" width="800" height="522">  
 </p>  
 <!---->
 <!--<p align="center"> -->

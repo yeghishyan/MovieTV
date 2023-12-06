@@ -38,11 +38,11 @@ struct MainPageContent: View {
     func collectionContentSection() -> some View {
         VStack(alignment: .leading, spacing: 10) {
             ScrollView(.horizontal) {
-                HStack(spacing: 20) {
+                HStack(spacing: 40) {
                     ForEach(Array(mainPageVM.rowData.enumerated()), id:\.offset) { (colIndex, item) in
                         CardItem(
                             imagePath: item.posterImage(size: .w342p),
-                            size: TMDbImageSize.w342p.dimensions.applying(.init(scaleX: 0.78, y: 0.78)),
+                            size: TMDbImageSize.w342p.dimensions.applying(.init(scaleX: 0.75, y: 0.75)),
                             ifPressed: {
                                 DispatchQueue.main.async {
                                     contentVM.selectedItem = item

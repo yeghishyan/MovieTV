@@ -30,6 +30,6 @@ enum MenuItem: Identifiable, CaseIterable, Hashable {
     }
     
     var image: String {
-        return self.name
+        return self.name.lowercased()
     }
 }

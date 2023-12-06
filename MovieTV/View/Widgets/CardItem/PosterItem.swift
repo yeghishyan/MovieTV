@@ -20,10 +20,12 @@ struct PosterView: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIPoster, context: Context) {
         if uiView.superview != nil {
-            uiView.leftAnchor.constraint(equalTo: uiView.superview!.leftAnchor, constant: 0).isActive = true
-            uiView.rightAnchor.constraint(equalTo: uiView.superview!.rightAnchor, constant: 0).isActive = true
-            uiView.topAnchor.constraint(equalTo: uiView.superview!.topAnchor, constant: 0).isActive = true
-            uiView.bottomAnchor.constraint(equalTo: uiView.superview!.bottomAnchor, constant: 0).isActive = true
+            //uiView.leftAnchor.constraint(equalTo: uiView.superview!.leftAnchor, constant: 0).isActive = true
+            //uiView.rightAnchor.constraint(equalTo: uiView.superview!.rightAnchor, constant: 0).isActive = true
+            //uiView.topAnchor.constraint(equalTo: uiView.superview!.topAnchor, constant: 0).isActive = true
+            //uiView.bottomAnchor.constraint(equalTo: uiView.superview!.bottomAnchor, constant: 0).isActive = true
+            uiView.centerXAnchor.constraint(equalTo: uiView.superview!.centerXAnchor, constant: 0).isActive = true
+            uiView.centerYAnchor.constraint(equalTo: uiView.superview!.centerYAnchor, constant: 0).isActive = true
         }
         
         uiView.widthAnchor.constraint(equalToConstant: width).isActive = true
