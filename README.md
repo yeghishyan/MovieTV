@@ -16,12 +16,11 @@
 15. [x] **AppIcon**
 
 
-<!--## Screenshots-->
-<!---->
-<!--<p align="center"> -->
-<!-- <img src="images/landing.png" width="366" height="696">  -->
-<!--  <img src="images/landing.png" width="366" height="696">-->
-<!--</p>  -->
+## Screenshots
+
+<p align="center"> 
+ <img src="Images/PosterView.png" width="366" height="696">  
+</p>  
 <!---->
 <!--<p align="center"> -->
 <!--  <img src="images/landing.png" width="366" height="696">  -->
