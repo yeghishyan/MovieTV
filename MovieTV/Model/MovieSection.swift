@@ -36,17 +36,6 @@ struct MovieVideo: Codable, Identifiable {
     }
 }
 
-
-struct GenresResponse: Codable {
-    let genres: [MovieGenre]
-}
-
-struct MovieGenre: Codable, Identifiable {
-    let id: Int
-    var name: String
-}
-
-
 struct MovieCast: Codable, Identifiable {
     let id: Int
     let character: String

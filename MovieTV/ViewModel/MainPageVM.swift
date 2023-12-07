@@ -12,9 +12,9 @@ class MainPageVM: ObservableObject {
     private var taskList: [String: Task<Void, Never>?] = [:]
     
     @Published var loading: Bool = true
-    @Published var updateAdData: Bool = false
     
     var rowData: [ItemModel] = []
+    var genres: MovieGenreListModel? = nil
     
     func onMenuSelection(selection: MenuItem) {
         self.loading = true
@@ -38,19 +38,39 @@ class MainPageVM: ObservableObject {
         }
     }
     
+    func loadCategories() async {
+        do {
+            let data: MovieGenreListModel = try await api.GET(endpoint: .genres)
+            self.genres = data
+        } catch {
+            print("[ERROR]: [", error, "]")
+        }
+    }
+    
     @MainActor
     private func loadContent(title: String, endpoint: Endpoint) async throws {
         let data: Response<ItemModel> = try await api.GET(endpoint: endpoint)
         
         if Task.isCancelled { return }
+        
         DispatchQueue.main.async {
-            self.rowData = data.results
+            var results = data.results
+            
+            if self.genres != nil {
+                for index in 0..<results.count {
+                    results[index].genres = results[index].genre_ids!.compactMap({
+                        self.genres!.genreMap[$0]
+                    })
+                }
+            }
+                
+            self.rowData = results
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                 self.loading = false
             })
         }
     }
-    
     
     private func executeTask(taskIdPrefix: String = "", _ function: @escaping () async throws -> Void) {
         let task = Task {

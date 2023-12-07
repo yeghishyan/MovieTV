@@ -43,23 +43,37 @@ struct HighlightedView: View {
     
     @ViewBuilder
     private func infoSection() -> some View {
-        HStack(alignment: .center, spacing: 30) {
-            Text("HD")
-                .overlay {
-                    RoundedRectangle(cornerRadius: 1)
-                        .inset(by: -3)
-                        .stroke(lineWidth: 4)
+        VStack(alignment: .leading) {
+            HStack(alignment: .center, spacing: 30) {
+                Text("TMDB \(String(format: "%.2f", currentItem!.vote_average))")
+                    .font(.raleway(size: 30, weight: .bold))
+                
+                if currentItem!.adult {
+                    Text("PG")
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 1)
+                                .inset(by: -3)
+                                .stroke(lineWidth: 4)
+                        }
+                        .font(.raleway(size: 22, weight: .heavy))
                 }
-                .font(.raleway(size: 22, weight: .heavy))
+            }
+            .frame(maxHeight: 60, alignment: .topLeading)
+            
+            HStack(alignment: .center, spacing: 30) {
+                Text(currentItem!.genres!.joined(separator: " "))
+                    .font(.raleway(size: 28, weight: .heavy))
+                
+            }
+            .frame(maxHeight: 40, alignment: .topLeading)
         }
-        .frame(maxHeight: 60, alignment: .topLeading)
     }
     
     @ViewBuilder
     private func descriptionSection() -> some View {
         HStack(alignment: .center, spacing: 0) {
-            Text(currentItem!.description)
-                .lineLimit(3)
+            Text(currentItem!.overview)
+                .lineLimit(4)
                 .multilineTextAlignment(.leading)
                 .foregroundStyle(.white.opacity(0.98))
                 .font(.raleway(size: 22, weight: .regular))

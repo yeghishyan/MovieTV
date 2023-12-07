@@ -23,6 +23,10 @@ struct ItemModel: Codable, Identifiable {
     let status: String?
     let video: Bool
     
+    let genre_ids: [Int]?
+    //let media_type: String?
+    var adult: Bool = false
+    
     var credits: MovieCredit?
     var videos: [MovieVideo]?
     
@@ -33,7 +37,7 @@ struct ItemModel: Codable, Identifiable {
     var character: String?
     var department: String?
     
-    var genres: [MovieGenre]?
+    var genres: [String]?
 }
 
 extension ItemModel {
@@ -58,10 +62,6 @@ extension ItemModel {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.date(from: date) ?? Date()
-    }
-    
-    var description: String {
-        return ""
     }
     
     var directors: [MovieCrew]? { credits?.crew.filter { $0.job.lowercased() == "director" } }

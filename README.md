@@ -5,38 +5,27 @@
 
 ## Todo List
 
-1. [x] **Splash Screen**
-2. [x] **Main page** 
-3. [ ]  **Menu** 
-4. [ ] **Movie page** 
+1. [x]  **Splash Screen** 
+2. [x]  **Menu** 
+3. [x]  **Main page**
+4. [ ]  **Movie page** 
 5. [ ]  **Series page** 
 6. [ ]  **Settings page** 
 7. [ ]  **Movie info page** 
 8. [ ]  **Series info page** 
-15. [x] **AppIcon**
+9. [x]  **AppIcon**
 
 
 ## Screenshots
 
 <p align="center"> 
- <img src="Images/PosterImage.png" width="800" height="522">  
+ <img src="Images/poster.png" width="800" height="522">  
 </p>  
-<!---->
-<!--<p align="center"> -->
-<!--  <img src="images/landing.png" width="366" height="696">  -->
-<!--  <img src="images/landing.png" width="366" height="696">-->
-<!--</p>  -->
-<!---->
-<!--<p align="center"> -->
-<!--  <img src="images/landing.png" width="366" height="696">-->
-<!--  <img src="images/landing.png" width="366" height="696">-->
-<!--</p>  -->
-<!---->
-<!--<p align="center"> -->
-<!--  <img src="images/landing.png" width="366" height="696"> -->
-<!--  <img src="images/landing.png" width="366" height="696">  -->
-<!--</p>  -->
-<!-- -->
+
+<p align="center"> 
+  <img src="images/menu.png" width="800" height="522">  
+</p>  
+
 
 ## Frameworks and dependencies
 

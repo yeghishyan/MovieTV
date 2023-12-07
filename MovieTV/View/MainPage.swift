@@ -41,7 +41,14 @@ struct MainPage: View {
         ZStack {
             mainPageContent()
         }
-        .onAppear { mainPageVM.onMenuSelection(selection: .home) }
+        .task {
+            Task {
+                await mainPageVM.loadCategories()
+                DispatchQueue.main.async {
+                    mainPageVM.onMenuSelection(selection: .home)
+                }
+            }
+        }
         //.navigationDestination(item: $contentVM.selectedSeason, destination: { item in
         //    SeasonPageContent()
         //        .environmentObject(contentVM)
