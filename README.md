@@ -23,7 +23,7 @@
 </p>  
 
 <p align="center"> 
-  <img src="images/menu.png" width="800" height="522">  
+  <img src="Images/menu.png" width="800" height="522">  
 </p>  
 
 
